@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SynFlow: Scaling Up LiDAR Scene Flow Estimation with Synthetic Data</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/bulma.min.css">
+  <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./assets/js/fontawesome.all.min.js"></script>
+
+  <style>
+    /* Adjust carousel navigation buttons to sit outside the images */
+    .slider-navigation-previous {
+      left: -2rem !important;
+    }
+    .slider-navigation-next {
+      right: -2rem !important;
+    }
+    .carousel-item {
+      padding: 0 1rem;
+    }
+  </style>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+
+      <h1 class="title is-3 publication-title">SynFlow: Scaling Up LiDAR Scene Flow Estimation <br>with Synthetic Data</h1>
+
+      <h2 class="title is-4 publication-subtitle"><br> Supplementary Material</h2>
+
+    </div>
+  </div>
+</section>
+
+<section class="section pt-4">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">A.1 Overview of Simulated Town Routes</h2>
+
+    <section class="hero">
+        <h3 class="title is-4 section-title">Town 01, 02, 03, 04</h3>
+          <section class="section">
+            <div class="container">
+              <!-- Carousel -->
+              <div class="carousel1">
+                <div class="carousel-item">
+                  <img src="./assets/images/town01.png" alt="Town 01" class="zoomable-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="./assets/images/town02.png" alt="Town 02" class="zoomable-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="./assets/images/town03.png" alt="Town 03" class="zoomable-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="./assets/images/town04.png" alt="Town 04" class="zoomable-image">
+                </div>
+              </div>
+            </div>
+          </section>
+
+        <h3 class="title is-4 section-title">Town 05, 06, 07, 10, 12</h3>
+          <section class="section">
+            <div class="container">
+              <div class="carousel1">
+                <div class="carousel-item">
+                  <img src="./assets/images/town05.png" alt="Town 05" class="zoomable-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="./assets/images/town06-v2.png" alt="Town 06" class="zoomable-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="./assets/images/town07.png" alt="Town 07" class="zoomable-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="./assets/images/town10.png" alt="Town 10" class="zoomable-image">
+                </div>
+                <div class="carousel-item">
+                  <img src="./assets/images/town12.png" alt="Town 12" class="zoomable-image">
+                </div>
+
+            </div>
+          </section>
+    </section>
+
+    <h2 class="title is-3">A.2 SynFlow Dataset: Video Previews</h2>
+    <section class="hero">
+        <h3 class="title is-4 section-title">Urban Driving Scenarios</h3>
+          <section class="section">
+            <div class="container">
+              <!-- Carousel -->
+              <div class="carousel1">
+                <div class="carousel-item">
+                  <video autoplay muted loop playsinline preload="auto" class="zoomable-video" style="cursor:zoom-in">
+                    <source src="./assets/videos/urban-64-02-peds.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="carousel-item">
+                  <video autoplay muted loop playsinline preload="auto" class="zoomable-video" style="cursor:zoom-in">
+                    <source src="./assets/videos/urban-64-01.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="carousel-item">
+                  <video autoplay muted loop playsinline preload="auto" class="zoomable-video" style="cursor:zoom-in">
+                    <source src="./assets/videos/small-urban-32-02.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="carousel-item">
+                  <video autoplay muted loop playsinline preload="auto" class="zoomable-video" style="cursor:zoom-in">
+                    <source src="./assets/videos/roundbounds-32.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="carousel-item">
+                  <video autoplay muted loop playsinline preload="auto" class="zoomable-video" style="cursor:zoom-in">
+                    <source src="./assets/videos/urban-64-03-cross-road.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        <h3 class="title is-4 section-title">Highway Driving Scenarios</h3>
+          <section class="section">
+            <div class="container">
+              <!-- Carousel -->
+              <div class="carousel1">
+                <div class="carousel-item">
+                  <video autoplay muted loop playsinline preload="auto" class="zoomable-video" style="cursor:zoom-in">
+                    <source src="./assets/videos/highway-64-01-merge.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="carousel-item">
+                  <video autoplay muted loop playsinline preload="auto" class="zoomable-video" style="cursor:zoom-in">
+                    <source src="./assets/videos/highway-32-02.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="carousel-item">
+                  <video autoplay muted loop playsinline preload="auto" class="zoomable-video" style="cursor:zoom-in">
+                    <source src="./assets/videos/highway-32.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="carousel-item">
+                  <video autoplay muted loop playsinline preload="auto" class="zoomable-video" style="cursor:zoom-in">
+                    <source src="./assets/videos/highway-64-02-turn.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </section>
+        <h3 class="title is-4 section-title">Rural & Suburban Scenarios</h3>
+          <section class="section">
+            <div class="container">
+              <!-- Carousel -->
+              <div class="carousel1">
+                <div class="carousel-item">
+                  <video autoplay muted loop playsinline preload="auto" class="zoomable-video" style="cursor:zoom-in">
+                    <source src="./assets/videos/suburban-64-01.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="carousel-item">
+                  <video autoplay muted loop playsinline preload="auto" class="zoomable-video" style="cursor:zoom-in">
+                    <source src="./assets/videos/rural-32.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="carousel-item">
+                  <video autoplay muted loop playsinline preload="auto" class="zoomable-video" style="cursor:zoom-in">
+                    <source src="./assets/videos/rural-64-02.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <!-- <div class="carousel-item">
+                  <video autoplay muted loop playsinline preload="auto" class="zoomable-video" style="cursor:zoom-in">
+                    <source src="./assets/videos/rural-64-01.mp4" type="video/mp4">
+                  </video>
+                </div> -->
+              </div>
+            </div>
+          </section>
+    </section>
+
+    <h2 class="title is-3" style="margin-top: 3.5rem;">B. Qualitative Results: Trained Models</h2>
+    <section class="hero">
+      <div class="container">
+        <figure class="qualitative-figure">
+          <img src="./assets/images/man-v2.png" alt="Qualitative Result — TruckScenes comparison" class="zoomable-image qualitative-image">
+          <figcaption class="qualitative-caption">
+            <span class="fig-label">Fig. 1.</span>
+            Qualitative comparison on a TruckScenes sequence showing the <em>ground truth</em>, an in-domain model
+            (<strong>ΔFlow</strong> trained on TruckScenes labels), and our zero-shot model trained only on
+            <strong>SynFlow-4k</strong>. The zoom-in (yellow circle) highlights a turning vehicle where SynFlow-4k
+            produces motion patterns closer to the ground truth, with more coherent flow under turning dynamics.
+            In contrast, the in-domain prediction appears less consistent on the same object — plausibly due to
+            the limited amount of supervised real data in TruckScenes (only 20% labeled). Overall, this example
+            supports our claim that scalable, physics-consistent synthetic motion supervision from SynFlow can
+            transfer effectively to real-world LiDAR scene flow, and can complement scenarios where real
+            annotations are scarce.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+    <!-- Bulma Carousel JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel/dist/js/bulma-carousel.min.js"></script>
+
+    <script>
+      window.addEventListener('load', () => {
+        // Initialize carousel1
+        bulmaCarousel.attach('.carousel1', {
+          slidesToScroll: 1,
+          slidesToShow: 1,
+          loop: true,
+          autoplay: false,
+        });
+
+        // Initialize carousel2
+        bulmaCarousel.attach('.carousel2', {
+          slidesToScroll: 1,
+          slidesToShow: 2,
+          loop: true,
+          autoplay: false,
+        });
+
+        // Setup image zoom functionality
+        const images = document.querySelectorAll('.zoomable-image');
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('modal-image-content');
+        const modalBgs = document.querySelectorAll('.modal-background, .modal-close');
+
+        images.forEach(img => {
+          img.style.cursor = 'zoom-in';
+          img.addEventListener('click', () => {
+            modalImg.src = img.src;
+            modal.classList.add('is-active');
+          });
+        });
+
+        modalBgs.forEach(bg => {
+          bg.addEventListener('click', () => {
+            modal.classList.remove('is-active');
+          });
+        });
+
+        // Close when clicking the zoomed image itself
+        modalImg.addEventListener('click', () => {
+          modal.classList.remove('is-active');
+        });
+        modalImg.style.cursor = 'zoom-out';
+
+        // Close on Escape key press
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' || e.keyCode === 27) {
+            modal.classList.remove('is-active');
+            closeVideoModal();
+          }
+        });
+
+        // Setup video zoom functionality (video preview one – Urban Scenarios)
+        const videoModal    = document.getElementById('video-modal');
+        const modalVideo    = document.getElementById('modal-video-content');
+        const videoModalBgs = videoModal.querySelectorAll('.modal-background, .modal-close');
+
+        function closeVideoModal() {
+          videoModal.classList.remove('is-active');
+          modalVideo.pause();
+          modalVideo.src = '';
+        }
+
+        document.querySelectorAll('.zoomable-video').forEach(vid => {
+          vid.addEventListener('click', () => {
+            const src = vid.querySelector('source').src;
+            modalVideo.src = src;
+            modalVideo.load();
+            modalVideo.play();
+            videoModal.classList.add('is-active');
+          });
+        });
+
+        videoModalBgs.forEach(bg => {
+          bg.addEventListener('click', closeVideoModal);
+        });
+
+        modalVideo.addEventListener('click', closeVideoModal);
+        modalVideo.style.cursor = 'zoom-out';
+      });
+    </script>
+
+  </div>
+</section>
+
+<!-- Video Modal -->
+<div id="video-modal" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content" style="width: auto; max-width: 92vw;">
+    <video id="modal-video-content" muted loop playsinline
+           style="max-height: 90vh; width: auto; max-width: 100%; display: block; margin: auto; cursor: zoom-out;"></video>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+<!-- Image Modal -->
+<div id="image-modal" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content" style="width: auto; max-width: 90vw;">
+    <p class="image">
+      <img id="modal-image-content" src="" alt="" style="max-height: 90vh; width: auto; margin: auto;">
+    </p>
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+</div>
+
+</body>
+</html>
