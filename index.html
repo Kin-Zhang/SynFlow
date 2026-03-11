@@ -195,15 +195,12 @@
           <img src="./assets/images/man-v2.png" alt="Qualitative Result — TruckScenes comparison" class="zoomable-image qualitative-image">
           <figcaption class="qualitative-caption">
             <span class="fig-label">Fig. 1.</span>
-            Qualitative comparison on a TruckScenes sequence showing the <em>ground truth</em>, an in-domain model
-            (<strong>ΔFlow</strong> trained on TruckScenes labels), and our zero-shot model trained only on
-            <strong>SynFlow-4k</strong>. The zoom-in (yellow circle) highlights a turning vehicle where SynFlow-4k
-            produces motion patterns closer to the ground truth, with more coherent flow under turning dynamics.
-            In contrast, the in-domain prediction appears less consistent on the same object — plausibly due to
-            the limited amount of supervised real data in TruckScenes (only 20% labeled). Overall, this example
-            supports our claim that scalable, physics-consistent synthetic motion supervision from SynFlow can
-            transfer effectively to real-world LiDAR scene flow, and can complement scenarios where real
-            annotations are scarce.
+            Qualitative comparison on a TruckScenes sequence.
+            The columns show ground truth, an in-domain model (ΔFlow trained on TruckScenes labels), and our zero-shot model trained only on SynFlow-4k. 
+            The yellow circle highlights a turning vehicle, with zoomed-in views shown below. 
+            In this example, our <strong>SynFlow-4k</strong> model produces motion patterns that are closer to the ground truth and more coherent under turning dynamics. 
+            In contrast, the in-domain model shows less consistent motion on the same object, likely due to the limited amount of labeled data available in TruckScenes (only 20% labeled). 
+            This example illustrates that physics-consistent synthetic supervision from SynFlow can transfer effectively to real-world LiDAR scene flow when real annotations are scarce.
           </figcaption>
         </figure>
       </div>
