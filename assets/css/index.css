@@ -21,6 +21,10 @@ body {
   color: #8E8E8E;
 }
 
+.author-block {
+  margin: 0 10px;
+}
+
 .section-title {
   margin-top: 40px;
 }

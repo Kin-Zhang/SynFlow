@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="./assets/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./assets/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -38,18 +39,100 @@
 
       <h1 class="title is-3 publication-title">SynFlow: Scaling Up LiDAR Scene Flow Estimation <br>with Synthetic Data</h1>
 
-      <h2 class="title is-4 publication-subtitle"><br> Supplementary Material</h2>
+      <!-- <h2 class="title is-4 publication-subtitle"><br> Supplementary Material</h2> -->
+
+      <div class="is-size-5 publication-authors">
+        <span class="author-block">
+          <a href="https://kin-zhang.github.io/">Qingwen Zhang</a> 
+        </span>
+        <span class="author-block">
+          <a href="https://www.kth.se/profile/xiazhu">Xiaomeng Zhu</a> 
+        </span>
+        <span class="author-block">
+          <a href="https://jiangchenhan.github.io/">Chenhan Jiang</a> 
+        </span>
+        <span class="author-block">
+          <a href="https://www.kth.se/profile/patric">Patric Jensfelt</a> 
+        </span>
+      </div>
+      <div class="is-size-5 publication-authors">
+        <span class="author-block">KTH</span>
+        <span class="author-block">HKUST</span>
+      </div>
+      <div class="container has-text-centered">
+        <div class="publication-links">
+
+          <!-- PDF Link.--> 
+          <span class="link-block">
+            <a href="https://arxiv.org/abs/todo" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                  <i class="ai ai-arxiv"></i>
+              </span>
+              <span>arXiv</span>
+            </a>
+          </span>
+          <!-- Code Link. -->
+          <span class="link-block">
+            <a href="https://github.com/Kin-Zhang/SynFlow" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                  <i class="fab fa-github"></i>
+              </span>
+              <span>Code</span>
+            </a>
+          </span>
+          <span class="link-block">
+            <a href="https://github.com/KTH-RPL/OpenSceneFlow" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                  <i class="fab fa-github"></i>
+              </span>
+              <span>OpenSceneFlow</span>
+            </a>
+          </span>
+          <!-- Dataset Link. -->
+          <span class="link-block">
+            <a href="" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                  <!-- dataset icon? -->
+                  <i class="fas fa-database"></i>
+              </span>
+              <span>Dataset</span>
+            </a>
+          </span>
+        </div>
+      </div>
+      
+      <p class="is-size-6 has-text-grey mt-4">
+        <em>* The generation pipeline code and dataset will be made publicly available after peer-review.</em>
+      </p>
 
     </div>
   </div>
 </section>
 
+<section class="section pt-5">
+  <div class="container is-max-desktop">
+
+    <h2 class="title is-3">Overview</h2>
+    <figure class="image pb-5">
+      <img src="assets/images/cover.png" alt="SynFlow Overview" class="zoomable-image">
+    </figure>
+    <p><strong>Scaling up LiDAR Scene Flow with Synthetic Data.</strong>
+      We present SynFlow, a data generation pipeline leveraging the CARLA simulator to synthesize diverse, perfectly labeled LiDAR scene flow data (center). 
+      While real-world datasets are often constrained by high annotation costs and limited scenario diversity, SynFlow provides a scalable source of dense, noise-free supervision for learning robust motion priors.
+As shown in the results (right), models trained on <strong>SynFlow-4k</strong> dataset achieve strong zero-shot generalization on real-world benchmarks and significantly outperform in-domain baselines when fine-tuned on a small subset of real data.
+<!-- <emph>More details available in the main paper pdf.</emph> -->
+<!-- add emphasis -->
+<em>More details available in the <a href="https://arxiv.org/abs/todo" class="external-link">main paper pdf</a>.</em>
+</p>
+  </div>
+</section>
+
 <section class="section pt-4">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">A.1 Overview of Simulated Town Routes</h2>
+    <h2 class="title is-3">Supplementary Material</h2>
+    <h2 class="title is-4">A.1 Overview of Simulated Town Routes</h2>
 
     <section class="hero">
-        <h3 class="title is-4 section-title">Town 01, 02, 03, 04</h3>
           <section class="section">
             <div class="container">
               <!-- Carousel -->
@@ -70,7 +153,7 @@
             </div>
           </section>
 
-        <h3 class="title is-4 section-title">Town 05, 06, 07, 10, 12</h3>
+        <!-- <h3 class="title is-4 section-title">Town 05, 06, 07, 10, 12</h3> -->
           <section class="section">
             <div class="container">
               <div class="carousel1">
@@ -94,7 +177,7 @@
           </section>
     </section>
 
-    <h2 class="title is-3">A.2 SynFlow Dataset: Video Previews</h2>
+    <h2 class="title is-4">A.2 SynFlow Dataset: Video Previews</h2>
     <section class="hero">
         <h3 class="title is-4 section-title">Urban Driving Scenarios</h3>
           <section class="section">
@@ -205,6 +288,25 @@
         </figure>
       </div>
     </section>
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <div style="position: relative;">
+          <button id="copy-btn" class="button is-small is-light" style="position: absolute; top: 10px; right: 10px; transition: all 0.3s ease; z-index: 10;" onclick="copyBibtex()">
+            <span class="icon is-small"><i class="fas fa-copy"></i></span>
+            <span id="copy-text">Copy</span>
+          </button>
+          <pre><code id="bibtex-code">@article{zhang2026synflow,
+  author    = {Zhang, Qingwen and Zhu, Xiaomeng and Jiang, Chenhan and Jensfelt, Patric},
+  title     = {SynFlow: Scaling Up LiDAR Scene Flow Estimation with Synthetic Data},
+  journal   = {arXiv preprint arXiv:TODO},
+  year      = {2026},
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
     <!-- Bulma Carousel JS -->
     <script src="https://cdn.jsdelivr.net/npm/bulma-carousel/dist/js/bulma-carousel.min.js"></script>
 
@@ -288,6 +390,25 @@
         modalVideo.addEventListener('click', closeVideoModal);
         modalVideo.style.cursor = 'zoom-out';
       });
+
+      function copyBibtex() {
+        const bibtex = document.getElementById('bibtex-code').innerText;
+        navigator.clipboard.writeText(bibtex).then(() => {
+          const btn = document.getElementById('copy-btn');
+          
+          btn.innerHTML = 'Copied!';
+          btn.classList.remove('is-light');
+          btn.classList.add('is-success'); // use bulma success green
+          btn.style.color = 'white';
+          
+          setTimeout(() => { 
+            btn.innerHTML = 'Copy'; 
+            btn.classList.remove('is-success');
+            btn.classList.add('is-light');
+            btn.style.color = '';
+          }, 2000);
+        });
+      }
     </script>
 
   </div>
@@ -308,7 +429,7 @@
   <div class="modal-background"></div>
   <div class="modal-content" style="width: auto; max-width: 90vw;">
     <p class="image">
-      <img id="modal-image-content" src="" alt="" style="max-height: 90vh; width: auto; margin: auto;">
+      <img id="modal-image-content" src="" alt="" style="max-height: 90vh; width: auto; margin: auto; background-color: white; padding: 10px;">
     </p>
   </div>
   <button class="modal-close is-large" aria-label="close"></button>
