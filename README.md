@@ -142,17 +142,23 @@ Downloaded the zip file then put the bin file to `/path/to/carla/CarlaUE4/Conten
 ## Model Training and Inference
 
 1. Python Environment Setup: Follow the [OpenSceneFlow](https://github.com/KTH-RPL/OpenSceneFlow/tree/main?tab=readme-ov-file#0-installation) to setup the environment or [use docker](https://github.com/KTH-RPL/OpenSceneFlow?tab=readme-ov-file#docker-recommended-for-isolation).
-2. Dataset Preparation: Download the SynFlow dataset and prepare the [TODO]
+2. Dataset Preparation: Download the SynFlow dataset [hf/town*](https://huggingface.co/datasets/KTH/SynFlow/tree/main)
 3. Run Command: The training with the following command (modify the data path accordingly):
 ```bash
-TODO
+python train.py slurm_id=$SLURM_JOB_ID wandb_mode=online wandb_project_name=synflow \
+     train_data="['data/town-06-07-10', 'SynFlow/data/town-01-05', 'SynFlow/data/town-12']" \
+     val_data='$DATA_DIR/val' model=deltaflow loss_fn=deltaflowLoss model.target.decoder_option=default \
+     num_workers=16 num_frames=5 model.target.decay_factor=0.4 epochs=21 batch_size=2 \
+     save_top_model=3 val_every=3 train_aug=True "voxel_size=[0.15, 0.15, 0.15]" "point_cloud_range=[-38.4, -38.4, -3, 38.4, 38.4, 3]" \
+     optimizer.lr=2e-4 +optimizer.scheduler.name=StepLR +optimizer.scheduler.step_size=3 +optimizer.scheduler.gamma=0.9
+
 ```
 
 ### Evaluation
 
-Trained your own model or downloaded the pretrained weights from [Table](#link to above table)
+Trained your own model or downloaded the pretrained weights from [Table](#synthetic-dataset).
 
-Please check the local evaluation result (raw terminal output screenshot) in [this discussion thread TODO](https://github.com/Kin-Zhang/SynFlow/discussions/2). 
+<!-- Please check the local evaluation result (raw terminal output screenshot) in [this discussion thread TODO](https://github.com/Kin-Zhang/SynFlow/discussions/2).  -->
 You can also run the evaluation by yourself with the following command with trained weights:
 ```bash
 python eval.py checkpoint=${path_to_pretrained_weights} dataset_path=${demo_data_path}
@@ -160,12 +166,21 @@ python eval.py checkpoint=${path_to_pretrained_weights} dataset_path=${demo_data
 
 ## Cite & Acknowledgements
 
+If you use this dataset or find our work helpful, please cite our papers, more bib on [OpenSceneFlow-Cite](https://github.com/KTH-RPL/OpenSceneFlow#cite-us).
+
 ```
 @article{zhang2026synflow,
   author    = {Zhang, Qingwen and Zhu, Xiaomeng and Jiang, Chenhan and Jensfelt, Patric},
   title     = {{SynFlow}: Scaling Up LiDAR Scene Flow Estimation with Synthetic Data},
   journal   = {arXiv preprint arXiv:2604.09411},
   year      = {2026},
+}
+@inproceedings{zhang2025deltaflow,
+  title={{DeltaFlow}: An Efficient Multi-frame Scene Flow Estimation Method},
+  author={Zhang, Qingwen and Zhu, Xiaomeng and Zhang, Yushan and Cai, Yixi and Andersson, Olov and Jensfelt, Patric},
+  booktitle={The Thirty-ninth Annual Conference on Neural Information Processing Systems},
+  year={2025},
+  url={https://openreview.net/forum?id=T9qNDtvAJX}
 }
 ```
 This work was partially supported by the Wallenberg AI, Autonomous Systems and Software Program (WASP) funded by the Knut and Alice Wallenberg Foundation and Prosense (2020-02963) funded by Vinnova. 
