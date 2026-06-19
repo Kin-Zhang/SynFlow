@@ -3,6 +3,7 @@ SynFlow: Scaling Up LiDAR Scene Flow Estimation with Synthetic Data
 
 [![arXiv](https://img.shields.io/badge/arXiv-2604.09411-b31b1b?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2604.09411)
 [![page](https://img.shields.io/badge/Project-Page-green)](https://kin-zhang.github.io/SynFlow)
+[![data](https://img.shields.io/badge/Data-HuggingFace-74b9ff?logo=huggingface)](https://huggingface.co/datasets/KTH/SynFlow)
 <!-- [![pdfreview](https://img.shields.io/badge/OpenReview-PDF-blue)](https://github.com/Kin-Zhang/SynFlow/discussions/1) -->
 <!-- [![poster](https://img.shields.io/badge/CVPR'26|Poster-6495ed?style=flat&logo=Shotcut&logoColor=wihte)](https://drive.google.com/file/d/1RNwMUiw1lEZ9DRPAZrBb6f0geLEJUCe2/view?usp=sharing) -->
 <!-- [![video](https://img.shields.io/badge/Presentation-YouTube-FF0000?logo=youtube&logoColor=white)](https://youtu.be/BV47IUSEOgE) -->
@@ -13,8 +14,8 @@ SynFlow: Scaling Up LiDAR Scene Flow Estimation with Synthetic Data
 
 SynFlow got accepeted in ECCV2026, I'm updating the repo and README, stay tuned for the dataset release and code release! Timeline and TODO:
 - [x] 2026-06-18: Initial the repo and add README.
+- [x] 2026-06-19: Upload the dataset to Huggingface and add the download link in README.
 - [ ] Update the CARLA code for dataset generation and add the dataset generation instruction in README.
-- [ ] Upload the dataset to Huggingface and add the download link in README.
 - [ ] Add review comment and rebuttal pdf and poster link
 
 
@@ -25,23 +26,37 @@ Test computer and sftool (py38):
 - System setting: Ubuntu 20.04, Python 3.8
 - Test Date: 2025-12-07, CARLA Version: 0.9.15, Using the conda env sftool (py38)
 
+CARLA Installation, please refer to [CARLA Quickstart](https://carla.readthedocs.io/en/latest/start_quickstart/) for detailed instructions. Quick step:
+1. Download the desired version of CARLA from [CARLA Releases](https://github.com/carla-simulator/carla/releases)
+2. Unzip the file and navigate to the extracted folder
+3. Run the following command to start the CARLA server:
+```bash
+./CarlaUE4.sh --quality-level=Epic -carla-rpc-port=2010
+```
 
-### CARLA Installation
 
+## Synthetic Dataset
 
-## Synthetic Dataset Generation
+You can always download the dataset from [HuggingFace](https://huggingface.co/datasets/KTH/SynFlow):
 
-SynFlow-4k Dataset Donwload Link
 | Dataset/Model |Download Link | Description |
 |:---------------------:|:-------------:|:-----------------:|
-| SynFlow-4k | [huggingface TODO](TODO) | It contains around 4k scenes includes 940k frames with 3D flow ground truth... TODO |
-| DeltaFlow weight (trained on SynFlow-4k) | [huggingface TODO](TODO) | Model trained on SynFlow-4k dataset, which can be used for evaluation and as a pretrained model for real-world data finetuning. |
-| DeltaFlow weight (trained on SynFlow-4k with real-world data) | [huggingface TODO](TODO) | Model trained on SynFlow-4k dataset with real-world data, which can be used for evaluation and as a pretrained model for real-world data finetuning. |
-
-### Step 1: Generate route
+| SynFlow-4k | [hf/town*](https://huggingface.co/datasets/KTH/SynFlow/tree/main) | It contains around 4k scenes includes 940k frames with 3D flow ground truth... TODO |
+| DeltaFlow weight (trained on SynFlow-4k) | [hf/model-ckpt](https://huggingface.co/datasets/KTH/SynFlow/blob/main/model-ckpt/synflow-4k-longadp.ckpt) | Model trained on SynFlow-4k dataset, which can be used for evaluation and as a pretrained model for real-world data finetuning. |
+| DeltaFlow weight (trained on SynFlow-4k with real-world data) | [hf/model-ckpt](https://huggingface.co/datasets/KTH/SynFlow/blob/main/model-ckpt/synflow-real-longadp.ckpt) | Model trained on SynFlow-4k dataset with real-world data, which can be used for evaluation and as a pretrained model for real-world data finetuning. PLEASE NOTE this model is non-commercial use only as it trained on real-world data. |
 
 
-### Step 2: Generate dataset
+### Dataset Generation
+
+**(Optional) Step 1 - Generate route**
+
+If you want to generate the route yourself, you can use the [generate_route.py](generate_route.py) script.
+```bash
+python generate_route.py --map Town01 --min_len 150.0 --max_len 250.0 --sampling_dist 10.0 --resolution 2.0 --min_new_meters 20.0
+```
+Otherwise, you can download the route from [hf/routes-xml](https://huggingface.co/datasets/KTH/SynFlow/tree/main/routes-xml) and put them into [`assets/data`](assets/data) folder.
+
+**Step 2: Generate dataset**
 
 You can launch more than 1 CARLA simulator (on different ports) to collect data in parallel. 
 Each process collect 1 route at a time.
@@ -98,7 +113,7 @@ python run_all.py --port 2000 --townids "01,02" -c 64 --data_dir /data/set-a &
 python run_all.py --port 3000 --townids "03,05" -c 64 --data_dir /data/set-b &
 ```
 
-### Step 3: Visualize data
+### Visualize data
 
 You may need create index file `index_total.pkl` first by running:
 ```bash
@@ -122,6 +137,7 @@ Downloaded the zip file then put the bin file to `/path/to/carla/CarlaUE4/Conten
 
 2. CARLA simulator crash during data collection. Known issues: ; so I added auto-restart mechanism in [run_all.py](run_all.py) to restart the simulator when crash detected. but still need to investigate on Town12 crash issue for some route id.
 
+3. If CARLA is not work for you, quick check: if port is occupied, you can check the port by running `netstat -ntlp | grep 2010`. Or if render driver is working, check [blog-Fix Vulkan Segmentation Fault on Linux](https://kin-zhang.github.io/blog/2025/carla-error/)
 
 ## Model Training and Inference
 
