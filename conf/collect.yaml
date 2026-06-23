@@ -1,0 +1,50 @@
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+
+simulation:
+  host: "localhost"
+  port: 2000
+  timeout: 15.0  # seconds
+  route_id: [0,1]
+  route_file: "/home/kin/data/CARLA/CARLA_0.9.16/PythonAPI/opensf-carla/assets/data/town04.xml"
+  data_output: "/home/kin/data/CARLA/data-32-160k-2k"
+  max_frames_per_scene: 201 # each route max frames to collect
+  start_id: 0  # Start from route ID (0-indexed). Set to -1 to start from beginning.
+  record_carla_log: true  # CARLA log file recording
+  save_images: false  # Save third-person RGB cover images to scene-img/ (costs 1 GPU sensor slot)
+
+world_settings:
+  fixed_delta_seconds: 0.1  # 10 Hz
+  logging_level: "INFO"  # Options: 'DEBUG', 'INFO', 'WARN', 'ERROR', 'FATAL'
+  
+npcs:
+  speed_factor: 10 # -10.0: 10% faster than limit; 5: 5% slower than limit
+  num_vehicles: 70
+  num_walkers: 80
+
+sensors:
+  lidar_semantic:
+    type: "sensor.lidar.ray_cast_semantic"
+    z_offset: 2.1
+    # lidar setting (default to carla leaderboard setting)
+    range: 85
+    rotation_frequency: 10
+    channels: 64
+    upper_fov: 10.0
+    lower_fov: -30.0
+    points_per_second: 460000
+
+    # default to lidar default setting (32-beams):
+    # range: 75
+    # rotation_frequency: 10
+    # channels: 32
+    # upper_fov: 10.0
+    # lower_fov: -30.0
+    # points_per_second: 56000 # It will make less pts, better with 200k
+
+  # camera_rgb:
+  #   type: "sensor.camera.rgb"
+  #   image_size_x: 1242
+  #   image_size_y: 375
+  #   fov: 90.0
