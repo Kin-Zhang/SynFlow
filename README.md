@@ -15,8 +15,8 @@ SynFlow: Scaling Up LiDAR Scene Flow Estimation with Synthetic Data
 SynFlow got accepeted in ECCV2026, I'm updating the repo and README, stay tuned for the dataset release and code release! Timeline and TODO:
 - [x] 2026-06-18: Initial the repo and add README.
 - [x] 2026-06-19: Upload the dataset to Huggingface and add the download link in README.
-- [ ] Update the CARLA code for dataset generation and add the dataset generation instruction in README.
-- [ ] Add review comment and rebuttal pdf and poster link
+- [x] 2026-06-28: Update the CARLA code for dataset generation and add the dataset generation instruction in README.
+<!-- - [ ] Add review comment and rebuttal pdf and poster link -->
 
 
 ## Prerequisites
@@ -40,10 +40,10 @@ CARLA Installation, please refer to [CARLA Quickstart](https://carla.readthedocs
 You can always download the dataset from [HuggingFace](https://huggingface.co/datasets/KTH/SynFlow):
 
 | Dataset/Model |Download Link | Description |
-|:---------------------:|:-------------:|:-----------------:|
+|---------------------|-------------|-----------------|
 | SynFlow-4k | [hf/town*](https://huggingface.co/datasets/KTH/SynFlow/tree/main) | It contains around 4k scenes includes 940k frames with 3D flow ground truth... TODO |
 | DeltaFlow weight (trained on SynFlow-4k) | [hf/model-ckpt](https://huggingface.co/datasets/KTH/SynFlow/blob/main/model-ckpt/synflow-4k-longadp.ckpt) | Model trained on SynFlow-4k dataset, which can be used for evaluation and as a pretrained model for real-world data finetuning. |
-| DeltaFlow weight (trained on SynFlow-4k with real-world data) | [hf/model-ckpt](https://huggingface.co/datasets/KTH/SynFlow/blob/main/model-ckpt/synflow-real-longadp.ckpt) | Model trained on SynFlow-4k dataset with real-world data, which can be used for evaluation and as a pretrained model for real-world data finetuning. PLEASE NOTE this model is non-commercial use only as it trained on real-world data. |
+| DeltaFlow weight (trained on SynFlow-4k with real-world data) | [hf/model-ckpt](https://huggingface.co/datasets/KTH/SynFlow/blob/main/model-ckpt/synflow-real-longadp.ckpt) | Model trained on SynFlow-4k dataset with real-world data, which can be used for evaluation and as a pretrained model for real-world data finetuning. PLEASE NOTE this model is non-commercial use only as the training includes real-world data. |
 
 
 ### Dataset Generation
